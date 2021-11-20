@@ -1,4 +1,4 @@
-<%- include ('./template/cabecera', {tituloa: 'Clientes' }); %>
+<%- include ('./template/cabecera', {tituloa: 'Proveedores' }); %>
     <h1 align = 'center' class="text-light bg-info">Proveedores</h1>
 
     
@@ -16,13 +16,13 @@
             <tbody>
 
                 <% if (arrayProveedores.length> 0) { %>
-                    <% arrayProveedores.forEach(cliente=> { %>
+                    <% arrayProveedores.forEach(proveedor=> { %>
 
                         <tr>
-                            <th scope="row"><%= cliente.id %></th>
-                            <td><%= cliente.nombre %></td>
-                            <td><%= cliente.apellidos %></td>
-                            <td><%= cliente.cel %></td>
+                            <th scope="row"><%= proveedor.id %></th>
+                            <td><%= proveedor.nombre %></td>
+                            <td><%= proveedor.apellidos %></td>
+                            <td><%= proveedor.cel %></td>
                             <td><%=  %></td>
                         </tr>
 
