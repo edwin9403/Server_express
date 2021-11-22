@@ -21,26 +21,13 @@ mongoose.connect(uri,{useNewUrlParser: true, useUnifiedTopology:true})
 .then(()=> console.log('Conectado a la base de datos'))
 .catch(e => console.log('Error de conexión',e));
 
-
-//Llamado de pagina index dinamica
-
-//Aqui crearemos el servidorExpress
-/*app.get("/",(req,res)=>{
-    res.send("<h1>Hola bienvenidos desde un servidor Express_V_1</h1>");
-});*/
-/*
-app.get("/productos", (req, res) =>{
-    res.send("<h1 align=center>Hola estas en la pagina de productos </h1>");
-})*/
-
-//Aqui hago un middleware para llamar un archivo en particular
-
 //Rutas website
 app.use('/', require('./router/RutasWeb'));
 
 //Rutas de archivo de datos
 app.use('/clientes', require('./router/clientes'));
 app.use('/proveedores', require('./router/proveedores'));
+app.use('/productos', require('./router/productos'));
 
 app.use((req, res, next) => {
     res.status(404).render("404",{

@@ -2,16 +2,16 @@ const express = require('express');
 const router = express.Router();
 
 const Cliente = require('../models/cliente');
-router.get('/',async(req,res) => {
+router.get('/', async (req, res) => {
     try {
         const arrayClientesDB = await Cliente.find();
         console.log(arrayClientesDB)
-        res.render("clientes",{
-            arrayClientes:arrayClientesDB
+        res.render("clientes", {
+            arrayClientes: arrayClientesDB
         })
-    }catch(error){
+    } catch (error) {
         console.log(error)
-    } 
+    }
 })
 
 module.exports = router;

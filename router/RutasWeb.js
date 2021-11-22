@@ -7,13 +7,15 @@ router.get("/", (req, res)=> {
 })
 
 router.get("/productos", (req, res)=> {
-    res.render("productos", {titulo:"Mi Pagina dinamica de produtos"});
+    res.render("productos", {titulo:"Página principal de productos"});
 })
 
 router.get("/usuarios", (req, res)=> {
     res.render("usuarios", {titulo:"Mi Pagina dinamica de Usuarios"});
 })
 
-
+router.get("/ventas", (req, res)=> {
+    res.render("ventas", {titulo:"Aqui va el modulo de Ventas"});
+})
 
 module.exports = router;

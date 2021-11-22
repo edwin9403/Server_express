@@ -1,8 +1,57 @@
-<%- include ('./template/cabecera', {tituloa: 'produtos'}); %>
-<h1 align = 'center' class="text-light bg-info">Productos</h1>
+<%- include ('./template/cabecera', {tituloa: 'Produtos' }); %>
+    <h1 align='center' class="text-light bg-info">Productos</h1>
 
-<h1>Productos</h1>
-<h2>
-    <%= titulo%>
-</h2>
+    <div class="container">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Código Producto</th>
+                    <th scope="col">Nombre Producto</th>
+                    <th scope="col">Nit Proveedor</th>
+                    <th scope="col">Precio Compra</th>
+                    <th scope="col">IVA</th>
+                    <th scope="col">Precio Venta</th>
+                    <th scope="col">Acción</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <% if (arrayProductos.length> 0) { %>
+                    <% arrayProductos.forEach(producto=> { %>
+
+                        <tr>
+                            <th scope="row">
+                                <%= producto.id %>
+                            </th>
+                            <td>
+                                <%= producto.codigo_producto %>
+                            </td>
+                            <td>
+                                <%= producto.nombre_producto %>
+                            </td>
+                            <td>
+                                <%= producto.nitproveedor %>
+                            </td>
+                            <td>
+                                <%= producto.precio_compra %>
+                            </td>
+                            <td>
+                                <%= producto.ivacompra %>
+                            </td>
+                            <td>
+                                <%= producto.precio_venta %>
+                            </td>
+                            <td>
+                                <%= %>
+                            </td>
+                        </tr>
+
+                        <% }) %>
+
+                            <% } %>
+
+
+            </tbody>
+        </table>
+    </div>
     <%- include('./template/footer'); %>
