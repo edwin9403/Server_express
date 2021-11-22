@@ -1,15 +1,12 @@
-//Modelo clientes
+//Modelo Usuario
 
 const mongoose= require('mongoose');
 const Schema=mongoose.Schema;
 
 //Creacion de Schema 
-const clienteSchema = new Schema({
+const usuarioSchema = new Schema({
     nombre: String,
     apellido: String,
-    cedula: Number,
-    direccion: String,
-    email: String,
     cel: Number
 });
 

@@ -6,9 +6,9 @@ router.get("/", (req, res)=> {
     res.render("index", {titulo:"Grupo 5, Ciclo 4."});
 })
 
-router.get("/productos", (req, res)=> {
+/* router.get("/productos", (req, res)=> {
     res.render("productos", {titulo:"Página principal de productos"});
-})
+}) */
 
 router.get("/usuarios", (req, res)=> {
     res.render("usuarios", {titulo:"Mi Pagina dinamica de Usuarios"});
