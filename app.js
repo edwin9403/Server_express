@@ -1,12 +1,19 @@
 //Creacion de server con express
 const express = require('express');
 const app = express();
-const port = 16;
+const bodyParser = require('body-parser');
+const port = 12;
 //Motor de plantillas
 app.set('view engine', 'ejs');
 app.set('views', __dirname + '/views');
 //Carpeta publica de archivos
 app.use(express.static(__dirname + "/public"));
+
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }))
+ 
+// parse application/json
+app.use(bodyParser.json())
 
 //Conexion a base de datos
 
