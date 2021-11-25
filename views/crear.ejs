@@ -1,7 +1,7 @@
 <%- include ('./template/cabecera', {tituloa: 'Crear Cliente' }); %>
-<h1 align = 'center' class="text-light bg-info">crear cliente</h1>
+<h1 align = 'center' class="text-light bg-info">Crear cliente</h1>
 
-<dic class="container">
+<div class="container">
     <form action="/clientes" method="post">
         <input type="text"
         placeholder ="Agregar nombre del cliente"
@@ -17,6 +17,21 @@
         placeholder ="Agregar celular del cliente"
         class="form-control my-2"
         name="cel">
+
+        <input type="text"
+        placeholder ="Agregar cedula del cliente"
+        class="form-control my-2"
+        name="cedula">
+
+        <input type="text"
+        placeholder ="Agregar direccion del cliente"
+        class="form-control my-2"
+        name="direccion">
+
+        <input type="text"
+        placeholder ="Agregar Email del cliente"
+        class="form-control my-2"
+        name="email">
 
         <button
         class = "btn btn-success btn-block"
