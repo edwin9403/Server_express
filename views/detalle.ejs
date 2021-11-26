@@ -1,0 +1,45 @@
+<%- include ('./template/cabecera', {tituloa: 'Detalle Cliente' }); %>
+<h1 align = 'center' class="text-light bg-info">Detalle de clientes</h1>
+
+<div class="container">
+    <% if ({error}) { %>
+        <p>
+            <%= mensaje %>
+        </p>
+        <a href="/clientes" class="btn btn-dark btn-block">Volver a clientes</a> 
+        <% } %>
+
+        <% if ({!error}) { %>
+            
+            
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#ID</th>
+                <th scope="col">Nombres</th>
+                <th scope="col">Apellidos</th>
+                <th scope="col">Telefono</th>
+                <th scope="col">Dirección</th>
+                <th scope="col">Cedula</th>
+                <th scope="col">Correo</th>
+                <th scope="col">Acción</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr>
+                        <th scope="row"></th>
+                        <%= cliente.id %>
+                        <td> <%= cliente.nombre %>   </td>
+                        <td> <%= cliente.apellido %>   </td>
+                        <td> <%= cliente.cedula %>  </td>
+                        <td> <%= cliente.direccion %>   </td>
+                        <td> <%= cliente.email %>   </td>
+                        <td> <%= cliente.cel %>   </td>
+                        <td>    </td>
+                    </tr>
+        </tbody>
+    </table>
+    <% } %>
+</div>
+<%- include('./template/footer'); %>

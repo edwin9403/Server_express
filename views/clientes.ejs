@@ -31,7 +31,8 @@
                             <td><%= cliente.direccion %></td>
                             <td><%= cliente.cedula %></td>
                             <td><%= cliente.email %></td>
-                            <td><%=  %></td>
+                            <td><a href="/clientes/<%= cliente.id %>"
+                                class="btn btn-warning btm-sm">Editar</a></td>
                         </tr>
 
                         <% }) %>
