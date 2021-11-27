@@ -2,15 +2,15 @@
 <h1 align = 'center' class="text-light bg-info">Detalle de clientes</h1>
 
 <div class="container">
-    <% if ({error}) { %>
+    <% if (error) { %>
         <p>
             <%= mensaje %>
         </p>
         <a href="/clientes" class="btn btn-dark btn-block">Volver a clientes</a> 
         <% } %>
 
-        <% if ({!error}) { %>
-            
+        <% if (!error) { %>
+             
             
     <table class="table">
         <thead>
