@@ -10,6 +10,11 @@ router.get("/", (req, res)=> {
     res.render("productos", {titulo:"Página principal de productos"});
 }) */
 
+/* router.get("/login", (req, res)=> {
+    res.render("login", {titulo:"Login"});
+})
+ */
+
 router.get("/usuarios", (req, res)=> {
     res.render("usuarios", {titulo:"Mi Pagina dinamica de Usuarios"});
 })

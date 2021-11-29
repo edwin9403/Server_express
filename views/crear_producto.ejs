@@ -1,0 +1,37 @@
+<%- include ('./template/cabecera', {tituloa: 'Crear Producto' }); %>
+<h1 align = 'center' class="text-light bg-info">Crear Producto</h1>
+
+<div class="container">
+    <form action="/productos" method="post">
+        <input type="text"
+        placeholder ="Agregar nombre del producto"
+        class="form-control my-2"
+        name="nombre_producto">
+
+        <input type="text"
+        placeholder ="Agregar NIT del proveedor"
+        class="form-control my-2"
+        name="nitproveedor">
+
+        <input type="text"
+        placeholder ="Agregar precio de compra"
+        class="form-control my-2"
+        name="precio_compra">
+
+        <input type="text"
+        placeholder ="Agregar IVA"
+        class="form-control my-2"
+        name="ivacompra">
+
+        <input type="text"
+        placeholder ="Agregar precio de venta"
+        class="form-control my-2"
+        name="precio_venta">
+
+        <button
+        class = "btn btn-success btn-block"
+        type="submit">
+            Agregar Producto
+            </button>
+            
+<%- include('./template/footer'); %>

@@ -2,6 +2,8 @@
     <h1 align='center' class="text-light bg-info">Productos</h1>
 
     <div class="container">
+        <a class ="btn btn-success btn-block my-4"
+        href="/productos/crear_producto"> Crear Producto</a> 
         <table class="table">
             <thead>
                 <tr>
@@ -27,8 +29,8 @@
                             <td><%= producto.precio_compra %></td>
                             <td><%= producto.ivacompra %></td>
                             <td><%= producto.precio_venta %></td>
-                            <td><%= %>
-                            </td>
+                            <td><a href="/productos/<%= producto.id %>"
+                                class="btn btn-warning btm-sm">Editar</a></td>
                         </tr>
 
                         <% }) %>
