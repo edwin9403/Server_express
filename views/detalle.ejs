@@ -10,36 +10,87 @@
         <% } %>
 
         <% if (!error) { %>
-             
+            <form id="formularioEditar" data-id="<%= cliente.id %>">
+                <input type="text" class="form-control my-2" name="nombre" value="<%= cliente.nombre %>" id="nombreInput">
+                <input type="text" class="form-control my-2" name="apellido" value="<%= cliente.apellido %> " id="apellidoInput">
+                <input type="text" class="form-control my-2" name="cedula" value="<%= cliente.cedula %>" id="cedulaInput">
+                <input type="text" class="form-control my-2" name="direccion" value="<%= cliente.direccion %>" id="direccionInput">
+                <input type="text" class="form-control my-2" name="email" value="<%= cliente.email %>" id="emailInput">
+                <input type="text" class="form-control my-2" name="cel" value="<%= cliente.cel %>" id="celInput">
             
-    <table class="table">
-        <thead>
-            <tr>
-                <th scope="col">#ID</th>
-                <th scope="col">Nombres</th>
-                <th scope="col">Apellidos</th>
-                <th scope="col">Telefono</th>
-                <th scope="col">Dirección</th>
-                <th scope="col">Cedula</th>
-                <th scope="col">Correo</th>
-                <th scope="col">Acción</th>
-            </tr>
-        </thead>
-        <tbody>
-
-            <tr>
-                        <th scope="row"></th>
-                        <%= cliente.id %>
-                        <td> <%= cliente.nombre %>   </td>
-                        <td> <%= cliente.apellido %>   </td>
-                        <td> <%= cliente.cedula %>  </td>
-                        <td> <%= cliente.direccion %>   </td>
-                        <td> <%= cliente.email %>   </td>
-                        <td> <%= cliente.cel %>   </td>
-                        <td>    </td>
-                    </tr>
-        </tbody>
-    </table>
+            <button type="submit" class="btn btn-warning btn-block">
+            Editar Cliente
+            </button>
+            </form>
+            <hr> 
+            <button class="btn btn-danger btn-sm mt-2" 
+                            id="btnEliminar"
+                            data-id="<%= cliente.id %>">
+                            Eliminar</button>
+    
     <% } %>
 </div>
 <%- include('./template/footer'); %>
+<script>
+
+    //Captura lo que trae el boton eliminar a través del id=btnEliminar.
+
+    const btnEliminar =document.querySelector('#btnEliminar')
+    btnEliminar.addEventListener('click', async()=>{
+        console.log('Haz dado un clic')
+        const id=btnEliminar.dataset.id //captura el parametro que se esta pasando a traves del atributo eliminar.
+        console.log('id',id) //Muestra en consola del navegador el ID    
+        try {
+            const data = await fetch (`/clientes/${id}`,{
+                method: 'delete'
+            })
+            const res=await data.json()
+            console.log(res)  
+            if (res.estado) {
+                window.location.href = '/clientes'
+            } else {
+                console.log(res)
+                
+            }          
+
+        }catch (error){
+        console.log(error) 
+        }
+})
+
+// Codigo de edicion
+
+const formularioEditar = document.querySelector('#formularioEditar')
+formularioEditar.addEventListener('submit', async(e)=>{
+    e.preventDefault()
+    console.log('Submit')
+    const nombre=formularioEditar.elements['nombre'].value
+    const apellido=document.querySelector('#apellidoInput').value
+    const cedula=document.querySelector('#cedulaInput').value
+    const direccion=document.querySelector('#direccionInput').value
+    const email=document.querySelector('#emailInput').value
+    const cel = document.querySelector('#celInput').value
+    const id = formularioEditar.dataset.id
+    console.log(nombre, apellido, cedula, direccion, email, cel, id)
+    try{
+        const data = await fetch(`/clientes/${id}`, {
+            method : 'put',
+            headers : {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({nombre, apellido,cedula,direccion,email,cel,id})
+        })
+        const res = await data.json()
+        if (res.estado) {
+            window.location.href = '/clientes'
+
+        } else {
+            console.log(res)
+            
+        }
+    }catch(error){
+        console.log(error)
+    }
+})
+
+</script>
