@@ -3,13 +3,17 @@
 
     
     <div class="container">
+        <a class ="btn btn-success btn-block my-4"
+        href="/Clientes/crear"> Crear Proveedor</a> 
         <table class="table">
             <thead>
                 <tr>
                     <th scope="col">#ID</th>
-                    <th scope="col">Nombre</th>
-                    <th scope="col">Apellido</th>
-                    <th scope="col">Celular</th>
+                    <th scope="col">NIT Proveedor</th>
+                    <th scope="col">Ciudad del Proveedor</th>
+                    <th scope="col">Direccion del Proveedor</th>
+                    <th scope="col">Nombre del Proveedor</th>
+                    <th scope="col">Telefono Proveedor</th>
                     <th scope="col">Acción</th>
                 </tr>
             </thead>
@@ -20,10 +24,13 @@
 
                         <tr>
                             <th scope="row"><%= proveedor.id %></th>
-                            <td><%= proveedor.nombre %></td>
-                            <td><%= proveedor.apellidos %></td>
-                            <td><%= proveedor.cel %></td>
-                            <td><%=  %></td>
+                            <td><%= proveedor.nitproveedor %></td>
+                            <td><%= proveedor.ciudad_proveedor %></td>
+                            <td><%= proveedor.direccion_proveedor %></td>
+                            <td><%= proveedor.nombre_proveedor %></td>
+                            <td><%= proveedor.telefono_proveedor %></td>
+                            <td><a href="/proveedores/<%= proveedor.id %>"
+                                class="btn btn-warning btm-sm">Editar</a></td>
                         </tr>
 
                         <% }) %>

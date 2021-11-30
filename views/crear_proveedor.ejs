@@ -1,0 +1,37 @@
+<%- include ('./template/cabecera', {tituloa: 'Crear Proveedor' }); %>
+<h1 align = 'center' class="text-light bg-info">Crear proveedor</h1>
+
+<div class="container">
+    <form action="/proveedores" method="post">
+        <input type="text"
+        placeholder ="Agregar NIT del proveedor"
+        class="form-control my-2"
+        name="nitproveedor">
+
+        <input type="text"
+        placeholder ="Agregar Ciudad del proveedor"
+        class="form-control my-2"
+        name="ciudad_proveedor">
+
+        <input type="text"
+        placeholder ="Agregar Direccion del proveedor"
+        class="form-control my-2"
+        name="direccion_proveedor">
+
+        <input type="text"
+        placeholder ="Agregar Nombre del Proveedor"
+        class="form-control my-2"
+        name="nombre_proveedor">
+
+        <input type="text"
+        placeholder ="Agregar telefono del proveedor"
+        class="form-control my-2"
+        name="telefono_proveedor">
+
+        <button
+        class = "btn btn-success btn-block"
+        type="submit">
+            agregar proveedor
+            </button>
+            
+<%- include('./template/footer'); %>

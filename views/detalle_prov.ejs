@@ -1,0 +1,95 @@
+<%- include ('./template/cabecera', {tituloa: 'Detalle Proveedor' }); %>
+<h1 align = 'center' class="text-light bg-info">Detalle de Proveedores</h1>
+
+<div class="container">
+    <% if (error) { %>
+        <p>
+            <%= mensaje %>
+        </p>
+        <a href="/proveedores" class="btn btn-dark btn-block">Volver a Proveedores</a> 
+        <% } %>
+
+        <% if (!error) { %>
+            <form id="formularioEditar" data-id="<%= producto.id %>">
+                <input type="text" class="form-control my-2" name="nitproveedor" value="<%= proveedor.nitproveedor %>" id="nitproveedorInput">
+                <input type="text" class="form-control my-2" name="ciudad_proveedor" value="<%= proveedor.ciudad_proveedor %> " id="ciudad_proveedorInput">
+                <input type="text" class="form-control my-2" name="direccion_proveedor" value="<%= proveedor.direccion_proveedor %>" id="direccion_proveedorInput">
+                <input type="text" class="form-control my-2" name="nombre_proveedor" value="<%= proveedor.nombre_proveedor %>" id="nombre_proveedorInput">
+                <input type="text" class="form-control my-2" name="telefono_proveedor" value="<%= proveedor.telefono_proveedor %>" id="telefono_proveedorInput">
+                
+            
+            <button type="submit" class="btn btn-warning btn-block">
+            Editar Proveedor
+            </button>
+            </form>
+            <hr> 
+            <button class="btn btn-danger btn-sm mt-2" 
+                            id="btnEliminar"
+                            data-id="<%= proveedor.id %>">
+                            Eliminar</button>
+    
+    <% } %>
+</div>
+<%- include('./template/footer'); %>
+<script>
+
+    //Captura lo que trae el boton eliminar a través del id=btnEliminar.
+
+    const btnEliminar =document.querySelector('#btnEliminar')
+    btnEliminar.addEventListener('click', async()=>{
+        console.log('Haz dado un clic')
+        const id=btnEliminar.dataset.id //captura el parametro que se esta pasando a traves del atributo eliminar.
+        console.log('id',id) //Muestra en consola del navegador el ID    
+        try {
+            const data = await fetch (`/proveedor/${id}`,{
+                method: 'delete'
+            })
+            const res=await data.json()
+            console.log(res)  
+            if (res.estado) {
+                window.location.href = '/proveedor'
+            } else {
+                console.log(res)
+                
+            }          
+
+        }catch (error){
+        console.log(error) 
+        }
+})
+
+// Codigo de edicion
+
+const formularioEditar = document.querySelector('#formularioEditar')
+formularioEditar.addEventListener('submit', async(e)=>{
+    e.preventDefault()
+    console.log('Submit')
+    const nitproveedor=formularioEditar.elements['nitproveedor'].value
+    const ciudad_proveedor=document.querySelector('#ciudad_proveedorInput').value
+    const direccion_proveedor=document.querySelector('#direccion_proveedorInput').value
+    const nombre_proveedor=document.querySelector('#nombre_proveedorInput').value
+    const telefono_proveedor=document.querySelector('#telefono_proveedorInput').value
+    const id = formularioEditar.dataset.id
+    console.log(nitproveedor, ciudad_proveedor, direccion_proveedor,  nombre_proveedor, telefono_proveedor, id)
+    try{
+        const data = await fetch(`/proveedores/${id}`, {
+            method : 'put',
+            headers : {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({nitproveedor, ciudad_proveedor, direccion_proveedor,  nombre_proveedor, telefono_proveedor, id})
+        })
+        const res = await data.json()
+        if (res.estado) {
+            window.location.href = '/proveedores'
+
+        } else {
+            console.log(res)
+            
+        }
+    }catch(error){
+        console.log(error)
+    }
+})
+
+</script>
