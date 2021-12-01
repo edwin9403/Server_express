@@ -1,5 +1,5 @@
 <%- include ('./template/cabecera', {tituloa: 'Detalle Proveedor' }); %>
-<h1 align = 'center' class="text-light bg-info">Detalle de Proveedores</h1>
+<h1 align = 'center' class="text-light bg-info">Detalle de Proveedor</h1>
 
 <div class="container">
     <% if (error) { %>
@@ -10,7 +10,7 @@
         <% } %>
 
         <% if (!error) { %>
-            <form id="formularioEditar" data-id="<%= producto.id %>">
+            <form id="formularioEditar" data-id="<%= proveedor.id %>">
                 <input type="text" class="form-control my-2" name="nitproveedor" value="<%= proveedor.nitproveedor %>" id="nitproveedorInput">
                 <input type="text" class="form-control my-2" name="ciudad_proveedor" value="<%= proveedor.ciudad_proveedor %> " id="ciudad_proveedorInput">
                 <input type="text" class="form-control my-2" name="direccion_proveedor" value="<%= proveedor.direccion_proveedor %>" id="direccion_proveedorInput">
@@ -41,13 +41,13 @@
         const id=btnEliminar.dataset.id //captura el parametro que se esta pasando a traves del atributo eliminar.
         console.log('id',id) //Muestra en consola del navegador el ID    
         try {
-            const data = await fetch (`/proveedor/${id}`,{
+            const data = await fetch (`/proveedores/${id}`,{
                 method: 'delete'
             })
             const res=await data.json()
             console.log(res)  
             if (res.estado) {
-                window.location.href = '/proveedor'
+                window.location.href = '/proveedores'
             } else {
                 console.log(res)
                 
@@ -70,7 +70,7 @@ formularioEditar.addEventListener('submit', async(e)=>{
     const nombre_proveedor=document.querySelector('#nombre_proveedorInput').value
     const telefono_proveedor=document.querySelector('#telefono_proveedorInput').value
     const id = formularioEditar.dataset.id
-    console.log(nitproveedor, ciudad_proveedor, direccion_proveedor,  nombre_proveedor, telefono_proveedor, id)
+    console.log(nitproveedor, ciudad_proveedor, direccion_proveedor, nombre_proveedor, telefono_proveedor, id)
     try{
         const data = await fetch(`/proveedores/${id}`, {
             method : 'put',

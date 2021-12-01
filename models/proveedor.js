@@ -1,4 +1,4 @@
-//Modelo clientes
+//Modelo Proveedor
 
 const mongoose= require('mongoose');
 const Schema=mongoose.Schema;

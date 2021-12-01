@@ -15,8 +15,8 @@ router.get('/', async (req, res) => {
 })
 
 // Ingreso a Clientes
-router.get('/crear', (req, res) => {
-    res.render('crear')
+router.get('/crear_proveedor', (req, res) => {
+    res.render('crear_proveedor')
 })
 
 //Transporte de los datos de la pagina dinamica a la base de datos
@@ -40,8 +40,8 @@ router.post('/', async(req, res)=>{
 router.get('/:id', async(req, res)=>{
     const id = req.params.id
     try {
-        const productoDB = await Producto.findOne({_id:id})
-        console.log(productoDB)
+        const proveedorDB = await Proveedor.findOne({_id:id})
+        console.log(proveedorDB)
         res.render('detalle_prov', { 
             proveedor : proveedorDB,
             error : false
