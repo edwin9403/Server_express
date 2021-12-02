@@ -1,6 +1,12 @@
 <%- include ('./template/cabecera', {tituloa: 'Detalle Cliente' }); %>
 <h1 align = 'center' class="text-light bg-info">Detalle de clientes</h1>
 
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="../css/style.css">
+
 <div class="container">
     <% if (error) { %>
         <p>
@@ -23,11 +29,10 @@
             </button>
             </form>
             <hr> 
-            <button class="btn btn-danger btn-sm mt-2" 
+           <button class="btn btn-danger btn-sm mt-2" 
                             id="btnEliminar"
                             data-id="<%= cliente.id %>">
                             Eliminar</button>
-    
     <% } %>
 </div>
 <%- include('./template/footer'); %>

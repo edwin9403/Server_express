@@ -3,9 +3,11 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const port = 14;
+
 //Motor de plantillas
 app.set('view engine', 'ejs');
 app.set('views', __dirname + '/views');
+
 //Carpeta publica de archivos
 app.use(express.static(__dirname + "/public"));
 
@@ -35,6 +37,7 @@ app.use('/', require('./router/RutasWeb'));
 app.use('/clientes', require('./router/clientes'));
 app.use('/proveedores', require('./router/proveedores'));
 app.use('/productos', require('./router/productos'));
+//app.use('/usuarios', require('./router/usuarios'));
 
 app.use((req, res, next) => {
     res.status(404).render("404",{

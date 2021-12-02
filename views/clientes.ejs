@@ -1,7 +1,12 @@
 <%- include ('./template/cabecera', {tituloa: 'Clientes' }); %>
     <h1 align = 'center' class="text-light bg-info">Clientes</h1>
 
-    
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+
     <div class="container">
         <a class ="btn btn-success btn-block my-4"
         href="/Clientes/crear"> Crear Cliente</a> 
@@ -32,14 +37,14 @@
                             <td><%= cliente.cedula %></td>
                             <td><%= cliente.email %></td>
                             <td><a href="/clientes/<%= cliente.id %>"
-                                class="btn btn-warning btm-sm">Editar</a></td>
+                                class="btn btn-warning btm-sm">Editar
+                            </a>
+                            </td>
+                                
                         </tr>
-
                         <% }) %>
 
                             <% } %>
-
-
             </tbody>
         </table>
     </div>

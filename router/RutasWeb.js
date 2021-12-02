@@ -3,7 +3,8 @@ const router = express.Router();
 
 //Rutas del app para organizar los archivos
 router.get("/", (req, res)=> {
-    res.render("index", {titulo:"Grupo 5, Ciclo 4."});
+    res.render("index", {titulo:""});
+    
 })
 
 /* router.get("/productos", (req, res)=> {
