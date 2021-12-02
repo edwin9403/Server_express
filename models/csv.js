@@ -1,33 +1,15 @@
-var mongoose  =  require('mongoose');
+const mongoose  =  require('mongoose');
 
-var csvSchema = new mongoose.Schema({
-    FirstName:{
+const Schema = new mongoose.Schema({
+    nombre:{
         type:String
     },
-    LastName:{
+    email:{
         type:String
     },
-    SSN:{
+    password:{
         type:String
     },
-    Test1:{
-        type:Number
-    },
-    Test2:{
-        type:Number
-    },
-    Test3:{
-        type:Number
-    },
-    Test4:{
-        type:Number
-    },
-    Final:{
-        type:Number
-    },
-    Grade:{
-        type:String
-    }
 });
 
-module.exports = mongoose.model('studentsrecords',csvSchema);
+module.exports = mongoose.model('users',Schema);

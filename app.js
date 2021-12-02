@@ -4,19 +4,21 @@ const app = express();
 const bodyParser = require('body-parser');
 const port = 14;
 const async = require('async');
+const multer = require('multer');
+const path = require('path');
+const csvModel = require('./models/csv');
+const csv = require('csvtojson');
 
-//Motor de plantillas
-app.set('view engine', 'ejs');
-app.set('views', __dirname + '/views');
+const storage = multer.diskStorage({
+  destination:(req,file,cb)=>{
+      cb(null,'./public/uploads');
+  },
+  filename:(req,file,cb)=>{
+      cb(null,file.originalname);
+  }
+});
 
-//Carpeta publica de archivos
-app.use(express.static(__dirname + "/public"));
-
-// parse application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: false }))
- 
-// parse application/json
-app.use(bodyParser.json())
+const uploads = multer({storage:storage});
 
 //Conexion a base de datos
 
@@ -31,10 +33,68 @@ mongoose.connect(uri,{useNewUrlParser: true, useUnifiedTopology:true})
 .then(()=> console.log('Conectado a la base de datos'))
 .catch(e => console.log('Error de conexión',e));
 
+//Motor de plantillas
+app.set('view engine', 'ejs');
+app.set('views', __dirname + '/views');
+
+//Carpeta publica de archivos
+//app.use(express.static(__dirname + "/public"));
+app.use(express.static(path.resolve(__dirname,'public')));
+
+
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }));
+ 
+// parse application/json
+app.use(bodyParser.json());
+
+//default pageload
+app.get('/',(req,res)=>{
+  csvModel.find((err,data)=>{
+       if(err){
+           console.log(err);
+       }else{
+            if(data!=''){
+                res.render('demo',{data:data});
+            }else{
+                res.render('demo',{data:''});
+            }
+       }
+  });
+});
+
+var temp ;
+
+app.post('/',uploads.single('csv'),(req,res)=>{
+   //convert csvfile to jsonArray   
+csv()
+.fromFile(req.file.path)
+.then((jsonObj)=>{
+    console.log(jsonObj);
+    for(var x=0;x<jsonObj;x++){
+         temp = parseFloat(jsonObj[x].nombre)
+         jsonObj[x].nombre = temp;
+         temp = parseFloat(jsonObj[x].email)
+         jsonObj[x].email = temp;
+         temp = parseFloat(jsonObj[x].password)
+         jsonObj[x].password = temp;
+      }
+      csvModel.insertMany(jsonObj,(err,data)=>{
+             if(err){
+                 console.log(err);
+             }else{
+                 res.redirect('/');
+             }
+      });
+    });
+ });
+
+
 //Rutas website
 app.use('/', require('./router/RutasWeb'));
 
-//Rutas de archivo de datos
+
+ //Rutas de archivo de datos
 app.use('/clientes', require('./router/clientes'));
 app.use('/proveedores', require('./router/proveedores'));
 app.use('/productos', require('./router/productos'));
