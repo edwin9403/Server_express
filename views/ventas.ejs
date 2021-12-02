@@ -1,14 +1,131 @@
-<%- include ('./template/cabecera', {tituloa: 'ventas'}); %>
-<h1 align = 'center' class="text-light bg-info">Ventas</h1>
+<%- include ('./template/cabecera', {tituloa: 'ventas' }); %>
+    <h1 align='center' class="text-light bg-info">Ventas</h1>
 
-<meta name="description" content="">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/style.css">
 
-<h1>Ventas</h1>
-<h2>
-    <%= titulo%>
-</h2>
-    <%- include('./template/footer'); %>
+    <div class="container">
+
+        <!--         <div class="col-md-3">
+            <label for="inputcedula" class="form-label">Cedula</label>
+            <input type="text" class="form-control" id="inputcedula">
+        </div> -->
+
+        <form class="row g-4">
+            <div class="col-md-4">
+                <label for="inputcedula" class="form-label">Cedula</label>
+                <input type="cedula" class="form-control" id="inputcedula">
+            </div>
+      
+            <form class="row g-4">
+                <div class="col-md-4">
+                    <label for="inputcliente" class="form-label">Cliente</label>
+                    <input type="cliente" class="form-control" id="inputcliente">
+                </div>
+
+                <form class="row g-4">
+                    <div class="col-md-4">
+                        <label for="inputconsecutivo" class="form-label">Consecutivo</label>
+                        <input type="consecutivo" class="form-control" id="inputconsecutivo">
+                    </div>
+
+                    <div class="col-md-2">
+                        <label for="inputcodprod" class="form-label">Cod. Prod.</label>
+                        <input type="text" class="form-control" id="inputcodprod">
+                    </div>
+
+                    <div class="col-5">
+                        <label for="inputproducto" class="form-label">Nombre Producto</label>
+                        <input type="text" class="form-control" id="inputproducto">
+                    </div>
+
+                    <div class="col-md-2">
+                        <label for="inputcantidad" class="form-label">Cantidad</label>
+                        <input type="text" class="form-control" id="inputcantidad">
+                    </div>
+                    <div class="col-md-2">
+                        <label for="inputtotal" class="form-label">Valor Total </label>
+                        <input type="text" class="form-control" id="inputtotal">
+                    </div>
+
+                    <div class="col-md-2">
+                        <label for="inputcodprod" class="form-label"></label>
+                        <input type="text" class="form-control" id="inputcodprod">
+                    </div>
+
+                    <div class="col-5">
+                        <label for="inputproducto" class="form-label"></label>
+                        <input type="text" class="form-control" id="inputproducto">
+                    </div>
+
+                    <div class="col-md-2">
+                        <label for="inputcantidad" class="form-label"></label>
+                        <input type="text" class="form-control" id="inputcantidad">
+                    </div>
+                    <div class="col-md-2">
+                        <label for="inputtotal" class="form-label"> </label>
+                        <input type="text" class="form-control" id="inputtotal">
+                    </div>
+
+                    <div class="col-md-2">
+                        <label for="inputcodprod" class="form-label"></label>
+                        <input type="text" class="form-control" id="inputcodprod">
+                    </div>
+
+                    <div class="col-5">
+                        <label for="inputproducto" class="form-label"></label>
+                        <input type="text" class="form-control" id="inputproducto">
+                    </div>
+
+                    <div class="col-md-2">
+                        <label for="inputcantidad" class="form-label"></label>
+                        <input type="text" class="form-control" id="inputcantidad">
+                    </div>
+
+                    <div class="col-md-2">
+                        <label for="inputtotal" class="form-label"> </label>
+                        <input type="text" class="form-control" id="inputtotal">
+                    </div>
+
+                    <!-- <h5 align='right' class="text-light bg-info">Total</h5> -->
+
+                    <hr>
+                    <div class="row mb-3">
+                        <label for="inputventa" class="col-sm-2 col-form-label">Total Venta</label>
+                        <div class="col-sm-3">
+                            <input type="venta" class="form-control" id="inputventa">
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label for="inputiva" class="col-sm-2 col-form-label">Total IVA</label>
+                        <div class="col-sm-3">
+                            <input type="iva" class="form-control" id="inputiva">
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label for="inputtotal" class="col-sm-2 col-form-label">Valor Venta</label>
+                        <div class="col-sm-3">
+                            <input type="total" class="form-control" id="inputtotal">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-4">
+                            <input type="submit" value="Comfirmar" class="btn btn-success float-left">
+                        </div>
+                        <div class="col-4 d-flex justify-content-center">
+                            <a href="#" class="btn btn-secondary mx-auto" style="margin:auto">Cancelar</a>
+                        </div>
+
+
+                    </div>
+
+                    <%- include('./template/footer'); %>
+
+                </form>
+            </form>
+        </form>
+    </div>

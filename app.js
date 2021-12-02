@@ -3,6 +3,7 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const port = 14;
+const async = require('async');
 
 //Motor de plantillas
 app.set('view engine', 'ejs');
@@ -39,14 +40,43 @@ app.use('/proveedores', require('./router/proveedores'));
 app.use('/productos', require('./router/productos'));
 //app.use('/usuarios', require('./router/usuarios'));
 
-app.use((req, res, next) => {
-    res.status(404).render("404",{
-        titulo:"Error 404",
-        descripcion:"Clic sobre la imagen para ir a la página de inicio"});
-});
-
 //Se escucha al server Express
 app.listen(port, ()=>{
     console.log(`escucha del sitio http://localhost:${port}`);
 
 });
+
+app.use((req, res, next) => {
+    res.status(404).render("404",{
+        titulo:"Error 404",
+        descripcion:"Clic sobre la imagen para ir a la página de inicio"});
+});
+app.post('/', function(req, res) {
+    async.waterfall([
+      function (callback) {
+        usuarios.findOne({
+          "email": email
+        }, function (err, result) {
+          if (err) {
+            console.log(err);
+            res.send({error: "An error has occurred"});
+          } else {
+            if (result == null) {
+              res.send({"error": "This email address is not recognised, please check you have entered your email correctly"});
+            } else {
+              console.log("Email recognised");
+              callback(null, result);
+            }
+          }
+        });
+      },
+      function (result, callback){
+        const password = result.password;
+        if (password !== password){
+          res.send({"error":"Sorry your password is incorrect"});
+        } else {
+          res.send({success:"Logged in successfully"});
+        }
+      }
+    ])
+  });

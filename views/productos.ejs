@@ -1,15 +1,14 @@
 <%- include ('./template/cabecera', {tituloa: 'Produtos' }); %>
     <h1 align='center' class="text-light bg-info">Productos</h1>
-    
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/style.css">
+    <meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="../css/style.css">
 
     <div class="container">
-        <a class ="btn btn-success btn-block my-4"
-        href="/productos/crear_producto"> Crear Producto</a> 
+        
         <table class="table">
             <thead>
                 <tr>
@@ -46,5 +45,8 @@
 
             </tbody>
         </table>
+        <a class ="btn btn-success btn-block my-4"
+        href="/productos/crear_producto"> Crear Producto</a> 
     </div>
+    
     <%- include('./template/footer'); %>

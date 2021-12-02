@@ -8,8 +8,7 @@
     <link rel="stylesheet" href="../css/style.css">
     
     <div class="container">
-        <a class ="btn btn-success btn-block my-4"
-        href="/proveedores/crear_proveedor"> Crear Proveedor</a> 
+        
         <table class="table">
             <thead>
                 <tr>
@@ -22,11 +21,12 @@
                     <th scope="col">Acción</th>
                 </tr>
             </thead>
+            <hr> 
             <tbody>
 
                 <% if (arrayProveedores.length> 0) { %>
                     <% arrayProveedores.forEach(proveedor=> { %>
-
+                        
                         <tr>
                             <th scope="row"><%= proveedor.id %></th>
                             <td><%= proveedor.nitproveedor %></td>
@@ -45,6 +45,8 @@
 
             </tbody>
         </table>
+        <a class ="btn btn-success btn-block my-4"
+        href="/proveedores/crear_proveedor"> Crear Proveedor</a> 
     </div>
     
     <%- include('./template/footer'); %>

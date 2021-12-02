@@ -33,11 +33,21 @@
         placeholder ="Agregar precio de venta"
         class="form-control my-2"
         name="precio_venta">
+        <br>
+        <br>
 
         <button
         class = "btn btn-success btn-block"
         type="submit">
             Agregar Producto
             </button>
-            
+            <br>
+            <br>
+            <h3 align = 'center' class="text-light bg-info">Importar productos</h3>
+
+            <div class="mb-3">
+                <label for="formFile" class="form-label">Buscar archivo</label>
+                <input class="form-control" type="file" id="formFile">
+              </div>
+
 <%- include('./template/footer'); %>
