@@ -49,7 +49,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 //default pageload
-app.get('/',(req,res)=>{
+app.get('/usuarios',(req,res)=>{
   csvModel.find((err,data)=>{
        if(err){
            console.log(err);
@@ -88,7 +88,6 @@ csv()
       });
     });
  });
-
 
 //Rutas website
 app.use('/', require('./router/RutasWeb'));

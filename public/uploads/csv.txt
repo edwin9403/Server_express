@@ -1,5 +1,5 @@
 "nombre",   "email",      "password",               
-"Alfalfa",  	        "Aloysius",      "123-45-6789"
-"Alfred",           "University",    "123-12-1234"
-"Gerty", 	       "Gramma",       "567-89-0123"
-"Android",       "Electric",        "087-65-4321"
+"Fabio",  	        "fabio@gmail.com",      "1234"
+"Alfredo",           "lelo@yahoo.com",    "1234"
+"Aleja", 	       "aleja@outlook.com",       "0123"
+"Mayra",       "mayra@gmail.com",        "1234"

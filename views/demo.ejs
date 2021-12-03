@@ -22,25 +22,46 @@
     <%if(data){%>
     <div>
         <table class="table table-hover table-responsive table-stripped  nav justify-content-center" style="width: auto" > 
-                <thead>
+<!--                 <thead>
                     <tr class="bg-primary">
                         <th>ID</th>
                         <th style="padding-right: 1em">Nombre</th>
                         <th style="padding-right: 1em">Correo</th>
                         <th style="padding-right:2em;padding-left:2em;">Password</th>
                     </tr>
+                </thead> -->
+
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Correo</th>
+                        <th scope="col">Password</th>
+                    </tr>
                 </thead>
-                <tbody style="overflow-x: scroll; height:350px;" class="table-bordered">
+
+                 <tbody style="overflow-x: scroll; height:350px;" class="table-bordered">
                     <%for(var i=0;i< data.length;i++){%>
                     <tr class="text-center">
-                                  <td ><%= i+1%></td>
+                                 <!-- <td ><%= i+1%></td>
                                   <td style="padding-right: 1em"><%= data[i].nombre%></td>
                                   <td style="padding-right: 1em"><%= data[i].email%></td>
                                   <td style="padding-right: 1em"><%= data[i].password%></td>
 
                     </tr>
                     <%}%>
-                </tbody>
+                </tbody> -->
+
+                
+                <tr>
+                    <td><%= users.nombre %></td>
+                    <td><%= user.email %></td>
+                    <td><%= userrs.password %></td>
+                        
+                </tr>
+                <% }) %>
+            </tbody> 
+                   
         </table>
     </div>
     <%}%>
