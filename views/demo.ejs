@@ -1,4 +1,4 @@
-<%- include ('./template/cabecera', {tituloa: 'Produtos' }); %>
+<%- include ('./template/cabecera', {tituloa: 'Importar' }); %>
     <h1 align='center' class="text-light bg-info">Importar Usuarios</h1>
 
     <meta name="description" content="">
@@ -35,8 +35,8 @@
                     <tr class="text-center">
                                   <td ><%= i+1%></td>
                                   <td style="padding-right: 1em"><%= data[i].nombre%></td>
-                                  <td style="padding-left: 1em;"><%= data[i].email%></td>
-                                  <td style="padding-right:1em;padding-left:1em;"><%= data[i].password%></td>
+                                  <td style="padding-right: 1em"><%= data[i].email%></td>
+                                  <td style="padding-right: 1em"><%= data[i].password%></td>
 
                     </tr>
                     <%}%>
@@ -45,5 +45,4 @@
     </div>
     <%}%>
 <br>
-</body>
-</html>
+<%- include('./template/footer'); %>
