@@ -97,6 +97,7 @@ app.use('/', require('./router/RutasWeb'));
 app.use('/clientes', require('./router/clientes'));
 app.use('/proveedores', require('./router/proveedores'));
 app.use('/productos', require('./router/productos'));
+app.use('/reportes', require('./router/reportes'));
 //app.use('/usuarios', require('./router/usuarios'));
 
 //Se escucha al server Express

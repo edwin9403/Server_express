@@ -1,5 +1,5 @@
 <%- include ('./template/cabecera', {tituloa: 'Produtos' }); %>
-    <h1 align='center' class="text-light bg-info">Productos</h1>
+    <h1 align='center' class="text-secondary">Productos</h1>
 
     <meta name="description" content="">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,7 +9,7 @@
 
     <div class="container">
         
-        <table class="table">
+        <table class="table table-success table-striped">
             <thead>
                 <tr>
                     <th scope="col">Código Producto</th>
@@ -35,7 +35,7 @@
                             <td><%= producto.ivacompra %></td>
                             <td><%= producto.precio_venta %></td>
                             <td><a href="/productos/<%= producto.id %>"
-                                class="btn btn-warning btm-sm">Editar</a></td>
+                                class="btn btn-info btm-sm">Editar</a></td>
                         </tr>
 
                         <% }) %>
@@ -45,7 +45,7 @@
 
             </tbody>
         </table>
-        <a class ="btn btn-success btn-block my-4"
+        <a class ="btn btn-outline-success btn-block my-4"
         href="/productos/crear_producto"> Crear Producto</a> 
     </div>
     

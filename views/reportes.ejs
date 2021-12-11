@@ -1,0 +1,118 @@
+<%- include('./template/cabecera', {tituloa:'Reportes'}); %>
+    <h1 align="center" class="text-secondary">Reportes</h1>
+
+    <button type="button" class="btn text-light btn-success mb-2" style="margin-right:120px "
+        onclick="mostrarBoton()">Listado de clientes registrados</button>
+
+    <button type="button" class="btn text-light btn-info mb-2" onclick="mostrarBoton2()">Ventas por cliente</button>
+
+    <br>
+
+    <div id="table" style="display: none;">
+        <table class="table">
+            <thead>
+                <tr class="bg-success">
+                    <th scope="col">Registro</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Apellidos</th>
+                    <th scope="col">Cedula</th>
+                    <th scope="col">Correo</th>
+                    <th scope="col">Dirección</th>
+                    <th scope="col">Telefono</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>Fabio</td>
+                    <td>Quimbay</td>
+                    <td>1234</td>
+                    <td>fabio@gmail.com</td>
+                    <td>Calle 1 2 3</td>
+                    <td>3103204545</td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>Alejandra</td>
+                    <td>Rey</td>
+                    <td>4569</td>
+                    <td>alejandra@gmail.com</td>
+                    <td>Calle 678</td>
+                    <td>3103980889</td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>Mayra</td>
+                    <td>Ramirez</td>
+                    <td>18678</td>
+                    <td>mayra@gmail.com</td>
+                    <td>Calle 789</td>
+                    <td>3103567890</td>
+                </tr>
+                <tr>
+                    <th scope="row">4</th>
+                    <td>Edwin</td>
+                    <td>Prieto</td>
+                    <td>1567</td>
+                    <td>edwin@gmail.com</td>
+                    <td>Calle 6789p</td>
+                    <td>3145678</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div id="table2" style="display: none;">
+        <table class="table text-center">
+            <thead>
+                <tr class="bg-info">
+                    <th scope="col">Registro</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Valor total ventas</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>Fabio Quimbay</td>
+                    <td>4000</td>
+
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>Alejandra Rey</td>
+                    <td>48999</td>
+
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>Mayra Ramirez</td>
+                    <td>90000</td>
+
+                </tr>
+                <tr>
+                    <th scope="row">4</th>
+                    <td>Edwin Prieto</td>
+                    <td>8999</td>
+
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <script>
+        var btn_1 = document.getElementById('table');
+        var btn_2 = document.getElementById('table2');
+
+        function mostrarBoton() {
+            btn_2.style.display = 'none';
+            btn_1.style.display = 'inline';
+        }
+
+        function mostrarBoton2() {
+            btn_1.style.display = 'none';
+            btn_2.style.display = 'inline';
+        }
+    </script>
+
+    <%- include('./template/footer'); %>

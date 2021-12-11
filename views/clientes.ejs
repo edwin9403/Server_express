@@ -1,5 +1,5 @@
 <%- include ('./template/cabecera', {tituloa: 'Clientes' }); %>
-    <h1 align = 'center' class="text-light bg-info">Clientes</h1>
+    <h1 align = 'center' class="text-secundary">Clientes</h1>
 
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,7 +9,7 @@
 
     <div class="container">
          
-        <table class="table">
+        <table class="table table-success table-striped">
             <thead>
                 <tr>
                     <th scope="col">#ID</th>
@@ -36,7 +36,7 @@
                             <td><%= cliente.cedula %></td>
                             <td><%= cliente.email %></td>
                             <td><a href="/clientes/<%= cliente.id %>"
-                                class="btn btn-warning btm-sm">Editar
+                                class="btn btn-info btm-sm">Editar
                             </a>
                             </td>
                                 
@@ -46,7 +46,7 @@
                             <% } %>
             </tbody>
         </table>
-        <a class ="btn btn-success btn-block my-4"
+        <a class ="btn btn-outline-success btn-block my-4"
         href="/Clientes/crear"> Crear Cliente</a>
     </div>
     
