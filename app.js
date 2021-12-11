@@ -2,6 +2,8 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
+const passport = require('passport');
+const cookiePaser = require('cookie-parser');
 const port = 14;
 const async = require('async');
 const multer = require('multer');
@@ -41,10 +43,9 @@ app.set('views', __dirname + '/views');
 //app.use(express.static(__dirname + "/public"));
 app.use(express.static(path.resolve(__dirname,'public')));
 
-
 // parse application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: false }));
- 
+app.use(express.urlencoded({ extended: true }));
+
 // parse application/json
 app.use(bodyParser.json());
 
@@ -92,7 +93,6 @@ csv()
 //Rutas website
 app.use('/', require('./router/RutasWeb'));
 
-
  //Rutas de archivo de datos
 app.use('/clientes', require('./router/clientes'));
 app.use('/proveedores', require('./router/proveedores'));
@@ -110,7 +110,23 @@ app.use((req, res, next) => {
         titulo:"Error 404",
         descripcion:"Clic sobre la imagen para ir a la página de inicio"});
 });
-app.post('/', function(req, res) {
+
+app.get("/",(req, res)=>{
+
+
+})
+
+app.get("/login",(req, res)=>{
+
+  res.send("Hola Mundo")
+});
+
+app.post("/login",(req, res)=>{
+
+
+});
+
+/* app.post('/', function(req, res) {
     async.waterfall([
       function (callback) {
         usuarios.findOne({
@@ -138,4 +154,4 @@ app.post('/', function(req, res) {
         }
       }
     ])
-  });
+  }); */
